@@ -21,5 +21,7 @@ end
 -- non plugin mappings
 require("core.keymaps").init()
 
-vim.cmd 'source ~/.config/nvim/lua/core/oldvimL.vim'
-vim.cmd 'source ~/.config/nvim/lua/core/gkeymaps.vim'
+vim.cmd "source ~/.config/nvim/lua/core/oldvimL.vim"
+vim.cmd "source ~/.config/nvim/lua/core/gkeymaps.vim"
+-- python3 兼容
+vim.cmd "let g:python3_host_prog = '/usr/local/bin/python3'"

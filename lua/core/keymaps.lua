@@ -100,6 +100,8 @@ M.init = function()
   cmd "silent! command PackerStatus lua require 'plugins' require('packer').status()"
   cmd "silent! command PackerSync lua require 'plugins' require('packer').sync()"
   cmd "silent! command PackerUpdate lua require 'plugins' require('packer').update()"
+
+  nmap("<leader>ud", ":UndotreeToggle<cr>")
 end
 
 ------------------------ Plugins Keymaps --------------------------------------------
@@ -144,7 +146,7 @@ M.lspconfig_setup = function()
   nmap("<leader>gl", '<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>')
   nmap("<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
   nmap("<leader>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
-  nmap("<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
+  -- nmap("<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
   nmap("<leader>gr", "<cmd>lua vim.lsp.buf.references()<CR>")
   nmap("<leader>gf", "<cmd>lua vim.diagnostic.open_float()<CR>")
   nmap("<leader>[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
@@ -235,6 +237,10 @@ M.trouble_setup = function()
 end
 M.aerial_setup = function()
   nmap("<leader>o", "<cmd>AerialToggle<cr>")
+end
+
+M.undotree_setup = function()
+  nmap("<leader>ud", "<cmd>UndotreeToggle<cr>")
 end
 
 return M

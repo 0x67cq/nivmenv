@@ -392,6 +392,33 @@ local plugins = {
     end,
   },
   ------------------------ Terminal End -----------------------------
+
+  {
+    "mbbill/undotree",
+    setup = function()
+      require("core.keymaps").undotree_setup()
+    end,
+  },
+  { "folke/which-key.nvim" },
+  {
+    "mfussenegger/nvim-dap",
+    opt = true,
+    event = "BufReadPre",
+    module = { "dap" },
+    wants = {
+      "nvim-dap-virtual-text",
+      "nvim-dap-ui",
+      "which-key.nvim",
+    },
+    requires = {
+      "theHamsta/nvim-dap-virtual-text",
+      "rcarriga/nvim-dap-ui",
+      "nvim-telescope/telescope-dap.nvim",
+    },
+    config = function()
+      require("plugins.configs.dap").setup()
+    end,
+  },
 }
 
 return packer.startup(function(use)
