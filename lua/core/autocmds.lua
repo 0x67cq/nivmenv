@@ -23,3 +23,5 @@ vim.cmd [[ au VimLeave * set guicursor=a:ver25-blinkon1 ]]
 vim.cmd [[ au BufReadPost * if expand('%:p') !~# '\m/\.git/' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif ]]
 -- File extension specific tabbing
 -- vim.cmd [[ autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 ]]
+--
+vim.cmd [[autocmd! FileType qf nnoremap <buffer> <C-v> <C-w><Enter><C-w>L]]

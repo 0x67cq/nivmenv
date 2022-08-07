@@ -138,6 +138,11 @@ M.lspconfig_setup = function()
     '<cmd>lua require"telescope.builtin".lsp_definitions({jump_type="split"})<CR>',
     { noremap = true, silent = true }
   )
+  nmap(
+    "<leader>js",
+    '<cmd>lua require"telescope.builtin".lsp_definitions({jump_type="split"})<CR>',
+    { noremap = true, silent = true }
+  )
   nmap("<leader>gd", "<cmd>lua vim.lsp.buf.declaration()<CR>")
   nmap("<leader>g", "<cmd>lua vim.lsp.buf.definition()<CR>")
   nmap("<leader>gh", "<cmd>lua vim.lsp.buf.hover()<CR>")
@@ -241,6 +246,14 @@ end
 
 M.undotree_setup = function()
   nmap("<leader>ud", "<cmd>UndotreeToggle<cr>")
+end
+
+M.gotopreview_setup = function()
+  nmap("<leader>gpd", "<cmd>lua require('goto-preview').goto_preview_definition()<cr>")
+  nmap("<leader>gpt", "<cmd>lua require('goto-preview').goto_preview_type_definition()<cr>")
+  nmap("<leader>gpi", "<cmd>lua require('goto-preview').goto_preview_implementation()<cr>")
+  nmap("<leader>gpc", "<cmd>lua require('goto-preview').close_all_win()<cr>")
+  nmap("<leader>gpr", "<cmd>lua require('goto-preview').goto_preview_references()<cr>")
 end
 
 return M
