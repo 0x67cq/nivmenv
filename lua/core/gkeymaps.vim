@@ -76,4 +76,3 @@ nmap qf :copen<cr>
 nmap q[ :cnext<cr>
 nmap q] :cprevious<cr>
 
-

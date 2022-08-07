@@ -128,21 +128,9 @@ M.comment_setup = function()
 end
 
 M.lspconfig_setup = function()
-  nmap(
-    "<leader>jv",
-    '<cmd>lua require"telescope.builtin".lsp_definitions({jump_type="vsplit"})<CR>',
-    { noremap = true, silent = true }
-  )
-  nmap(
-    "<leader>js",
-    '<cmd>lua require"telescope.builtin".lsp_definitions({jump_type="split"})<CR>',
-    { noremap = true, silent = true }
-  )
-  nmap(
-    "<leader>js",
-    '<cmd>lua require"telescope.builtin".lsp_definitions({jump_type="split"})<CR>',
-    { noremap = true, silent = true }
-  )
+  -- '<cmd>lua require"telescope.builtin".lsp_definitions({jump_type="vsplit"})<CR>',
+  nmap("<leader>jv", ":vsplit | lua vim.lsp.buf.definition()<Enter>")
+  nmap("<leader>js", ":belowright split | lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
   nmap("<leader>gd", "<cmd>lua vim.lsp.buf.declaration()<CR>")
   nmap("<leader>g", "<cmd>lua vim.lsp.buf.definition()<CR>")
   nmap("<leader>gh", "<cmd>lua vim.lsp.buf.hover()<CR>")
@@ -172,6 +160,7 @@ M.telescope_setup = function()
   nmap("<leader>gs", ":Telescope git_status <CR>")
   nmap("<leader>fh", ":Telescope help_tags <CR>")
   nmap("<leader>fw", ":Telescope live_grep <CR>")
+  nmap("<leader>fg", ":lua require('telescope.builtin').grep_string({search = vim.fn.expand('<cword>')})<CR>")
   nmap("<leader>fo", ":Telescope oldfiles <CR>")
 end
 M.telescope = {

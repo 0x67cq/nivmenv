@@ -399,7 +399,7 @@ local plugins = {
       require("core.keymaps").undotree_setup()
     end,
   },
-  -- { "folke/which-key.nvim" },
+  { "folke/which-key.nvim" },
   {
     "mfussenegger/nvim-dap",
     opt = true,
