@@ -82,7 +82,7 @@ set expandtab
 " 设置超过100长度提示
 set colorcolumn=81
 " 快捷键延迟
-set ttimeoutlen=10
+set ttimeoutlen=15
 
 " 背景颜色
 set background=dark

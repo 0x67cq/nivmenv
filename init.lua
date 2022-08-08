@@ -1,3 +1,4 @@
+-- improve start time plugin.
 local present, impatient = pcall(require, "impatient")
 
 if present then
