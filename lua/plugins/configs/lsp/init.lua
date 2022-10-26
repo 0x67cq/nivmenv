@@ -11,7 +11,7 @@ local servers = {
   gopls = "",
   yamlls = "",
   cssls = "",
-  html = "",
+  -- html = "",
   tailwindcss = "",
   eslint = "",
   clangd = "",
@@ -29,7 +29,7 @@ for name, _ in pairs(servers) do
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 local common_on_attach = require("plugins.configs.lsp.utils").common_on_attach
 
