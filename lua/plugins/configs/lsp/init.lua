@@ -100,4 +100,5 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 })
 
 require "plugins.configs.lsp.null-ls"
+
 -- require("plugins.configs.lsp.efm").setup(common_on_attach, capabilities)
