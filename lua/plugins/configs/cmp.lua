@@ -60,8 +60,8 @@ cmp.setup {
         -- Accept currently selected item. If none selected, `select` first item.
         -- Set `select` to `false` to only confirm explicitly selected items.
         --[[ [m.select] = cmp.mapping.confirm { select = true }, ]]
-        [m.select] = cmp.mapping(cmp.mapping.confirm()),
-        ["<TAB>"] = cmp.mapping(function(fallback)
+        [m.select] = cmp.mapping(cmp.mapping.confirm(), { "i" }),
+        ["<C-n>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
             elseif require("luasnip").expandable() then
@@ -77,7 +77,7 @@ cmp.setup {
             "i",
             "s",
         }),
-        ["<S-TAB>"] = cmp.mapping(function(fallback)
+        ["<C-p>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
             elseif require("luasnip").jumpable(-1) then

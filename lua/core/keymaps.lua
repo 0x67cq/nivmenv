@@ -207,7 +207,7 @@ M.cmp = {
     show_complete = "<C-Space>",
     disbale = "<C-y>",
     close = "<C-e>",
-    select = "<Space>",
+    select = "<TAB>",
 }
 
 M.hop_setup = function()
