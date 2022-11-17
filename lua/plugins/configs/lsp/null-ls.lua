@@ -12,15 +12,14 @@ null_ls.setup {
     -- debug = false,
     sources = {
         formatting.prettier,
-        formatting.stylua,
+        --[[ formatting.stylua, ]]
         formatting.rustfmt,
         -- diagnostics.eslint,
     },
     -- 保存自动格式化
-    on_attach = function(client)
-        --[[ if client.resolved_capabilities.document_formatting then ]]
-        if client.server_capabilities.documentFormattingProvider then
-            --[[ vim.cmd "autocmd BufWritePre <buffer> lua vim.lsp.buf.format()" ]]
-        end
-    end,
+    --[[ on_attach = function(client) ]]
+    --[[     if client.server_capabilities.documentFormattingProvider then ]]
+    --[[         vim.cmd "autocmd BufWritePre <buffer> lua vim.lsp.buf.format()" ]]
+    --[[     end ]]
+    --[[ end, ]]
 }

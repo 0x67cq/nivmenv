@@ -10,7 +10,7 @@ end
 
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
-nvim_tree.setup({
+nvim_tree.setup {
     renderer = {
         icons = {
             glyphs = {
@@ -84,9 +84,9 @@ nvim_tree.setup({
         mappings = {
             custom_only = false,
             list = {
-                { key = { "l", "<CR>", "o" }, cb = tree_cb("edit") },
-                { key = "h", cb = tree_cb("close_node") },
-                { key = "v", cb = tree_cb("vsplit") },
+                { key = { "l", "<CR>", "o" }, cb = tree_cb "edit" },
+                { key = "h", cb = tree_cb "close_node" },
+                { key = "v", cb = tree_cb "vsplit" },
             },
         },
         number = false,
@@ -114,4 +114,4 @@ nvim_tree.setup({
             },
         },
     },
-})
+}
