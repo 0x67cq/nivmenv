@@ -11,15 +11,17 @@ local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup {
     -- debug = false,
     sources = {
+        null_ls.builtins.code_actions.refactoring,
         formatting.prettier,
-        --[[ formatting.stylua, ]]
+        formatting.stylua,
         formatting.rustfmt,
+        formatting.goimports_reviser
         -- diagnostics.eslint,
     },
     -- 保存自动格式化
-    --[[ on_attach = function(client) ]]
-    --[[     if client.server_capabilities.documentFormattingProvider then ]]
-    --[[         vim.cmd "autocmd BufWritePre <buffer> lua vim.lsp.buf.format()" ]]
-    --[[     end ]]
-    --[[ end, ]]
+    on_attach = function(client)
+        if client.server_capabilities.documentFormattingProvider then
+            vim.cmd "autocmd BufWritePre <buffer> lua vim.lsp.buf.format()"
+        end
+    end,
 }

@@ -24,14 +24,13 @@ end
 
 ---@param ft string
 ---@param command string
-function M.setup_auto_format(ft, command)
-    -- setup_auto_format("lua", "lua require('stylua-nvim').format_file()")
-    if not command then
-        --[[ command = "lua vim.lsp.buf.formatting_sync()" ]]
-        command = "lua vim.lsp.buf.format()"
-    end
-    vim.cmd(string.format("autocmd BufWritePre *.%s %s", ft, command))
-end
+--[[ function M.setup_auto_format(ft, command) ]]
+--[[     -- setup_auto_format("lua", "lua require('stylua-nvim').format_file()") ]]
+--[[     if not command then ]]
+--[[         command = "lua vim.lsp.buf.format()" ]]
+--[[     end ]]
+--[[     vim.cmd(string.format("autocmd BufWritePre *.%s %s", ft, command)) ]]
+--[[ end ]]
 
 M.map = function(mode, keys, command, opt)
     local options = { noremap = true, silent = true }

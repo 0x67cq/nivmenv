@@ -60,7 +60,9 @@ cmp.setup {
         -- Accept currently selected item. If none selected, `select` first item.
         -- Set `select` to `false` to only confirm explicitly selected items.
         --[[ [m.select] = cmp.mapping.confirm { select = true }, ]]
-        [m.select] = cmp.mapping(cmp.mapping.confirm(), { "i" }),
+        --[[ [m.select] = cmp.mapping(cmp.mapping.confirm { select = true }, { "i" }), ]]
+        ["<CR>"] = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Insert, select = true },
+        ["<Tab>"] = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Replace, select = true },
         ["<C-n>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
@@ -111,10 +113,10 @@ cmp.setup {
         { name = "buffer" },
         { name = "path" },
     },
-    confirm_opts = {
-        behavior = cmp.ConfirmBehavior.Replace,
-        select = false,
-    },
+    --[[ confirm_opts = { ]]
+    --[[     behavior = cmp.ConfirmBehavior.Replace, ]]
+    --[[     select = false, ]]
+    --[[ }, ]]
     window = {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
