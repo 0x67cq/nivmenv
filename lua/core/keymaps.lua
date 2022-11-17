@@ -124,11 +124,11 @@ end
 
 M.comment_setup = function()
     map("n", "<C-/>", ":lua require('Comment.api').toggle.linewise.current()<CR>")
-    map("v", "<C-/>", ":lua require('Comment.api').locked(\"toggle.blockwise\")(vim.fn.visualmode())<CR>")
+    map("v", "<C-/>", ":lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>")
+    --[[ map("v", "<C-/>", ":lua require('Comment.api').locked(\"toggle.blockwise\")(vim.fn.visualmode())<CR>") ]]
 end
 
 M.lspconfig_setup = function()
-    -- '<cmd>lua require"telescope.builtin".lsp_definitions({jump_type="vsplit"})<CR>',
     nmap("<leader>jv", ":vsplit | lua vim.lsp.buf.definition()<Enter>")
     nmap("<leader>js", ":belowright split | lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
     nmap("<leader>gd", "<cmd>lua vim.lsp.buf.declaration()<CR>")
@@ -213,7 +213,7 @@ M.cmp = {
 M.hop_setup = function()
     nmap("<leader>mm", ":<C-u>HopWord<CR>")
     nmap("<leader>ml", ":<C-u>HopLine<CR>")
-    nmap("<leader>mc", ":<C-u>HopChar1<CR>")
+    nmap("t", ":<C-u>HopChar1<CR>")
     nmap("<leader>ms", ":<C-u>HopChar2<CR>")
 end
 
