@@ -145,7 +145,7 @@ M.lspconfig_setup = function()
     nmap("<leader>[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
     nmap("<leader>]d", "<cmd>lua vim.diagnostic.goto_next()<CR>")
     nmap("<leader>gsl", "<cmd>lua vim.diagnostic.setloclist()<CR>")
-    nmap("<leader>bg", "<cmd>lua vim.lsp.buf.formatting()<CR>")
+    nmap("<leader>bf", "<cmd>lua vim.lsp.buf.format({ async = true }) vim.cmd.write() <CR>")
 end
 
 M.nvimtree_setup = function()

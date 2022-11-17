@@ -25,3 +25,5 @@ vim.cmd [[ au BufReadPost * if expand('%:p') !~# '\m/\.git/' && line("'\"") > 1 
 -- vim.cmd [[ autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 ]]
 --
 vim.cmd [[autocmd! FileType qf nnoremap <buffer> <C-v> <C-w><Enter><C-w>L]]
+
+vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]

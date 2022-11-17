@@ -8,7 +8,7 @@ local formatting = null_ls.builtins.formatting
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
 local diagnostics = null_ls.builtins.diagnostics
 
-null_ls.setup({
+null_ls.setup {
     -- debug = false,
     sources = {
         formatting.prettier,
@@ -20,8 +20,7 @@ null_ls.setup({
     on_attach = function(client)
         --[[ if client.resolved_capabilities.document_formatting then ]]
         if client.server_capabilities.documentFormattingProvider then
-            --[[ vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()") ]]
-            vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.format()")
+            --[[ vim.cmd "autocmd BufWritePre <buffer> lua vim.lsp.buf.format()" ]]
         end
     end,
-})
+}
