@@ -6,6 +6,7 @@ end
 
 local plugins = {
     {
+        -- 插件管理
         "wbthomason/packer.nvim",
         event = "VimEnter",
     },
@@ -179,6 +180,15 @@ local plugins = {
             "jsx",
             "xml",
         },
+    },
+    {
+        "simrat39/symbols-outline.nvim",
+        setup = function()
+            require("core.keymaps").symbolsoutline_setup()
+        end,
+        config = function()
+            require "plugins.configs.symbols-outline"
+        end,
     },
     {
         "stevearc/aerial.nvim",

@@ -244,6 +244,10 @@ M.aerial_setup = function()
     nmap("<leader>o", "<cmd>AerialToggle<cr>")
 end
 
+M.symbolsoutline_setup = function()
+    nmap("<leader>s", "<cmd>SymbolsOutline<CR>")
+end
+
 M.undotree_setup = function()
     nmap("<leader>ud", "<cmd>UndotreeToggle<cr>")
 end
