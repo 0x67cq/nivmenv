@@ -112,7 +112,6 @@ local plugins = {
     {
         "numToStr/Comment.nvim",
         module = "Comment",
-        keys = { "gcc" },
         config = function()
             require "plugins.configs.comment"
         end,
