@@ -2,10 +2,13 @@
 -- vim.g.gruvbox_material_palette = "mix"
 -- vim.g.gruvbox_material_better_performance = 1
 
-vim.g.tokyonight_transparent = true
+--[[ vim.g.tokyonight_transparent = true ]]
 
 --local colorscheme = "tokyonight"
 local colorscheme = "gruvbox-material"
+--[[ local colorscheme = "candle-grey" ]]
+--[[ local colorscheme = "komau" ]]
+--[[ local colorscheme = "solarized8" ]]
 
 -- require("nightfox").setup {
 --   options = {
@@ -28,6 +31,6 @@ local colorscheme = "gruvbox-material"
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
-    vim.notify("colorscheme " .. colorscheme .. " not found!")
-    return
+	vim.notify("colorscheme " .. colorscheme .. " not found!")
+	return
 end

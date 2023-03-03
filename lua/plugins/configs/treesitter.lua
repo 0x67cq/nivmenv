@@ -3,8 +3,13 @@ if not status_ok then
     return
 end
 
-configs.setup {
+configs.setup({
     ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+    --[[ ensure_installed = { ]]
+    --[[     "bash", ]]
+    --[[     "go", ]]
+    --[[     "c", ]]
+    --[[ }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages ]]
     -- ensure_installed = {"vim", "javascript", "typescript", "tsx"},
     sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
     ignore_install = { "phpdoc" }, -- List of parsers to ignore installing
@@ -62,7 +67,7 @@ configs.setup {
             scope_incremental = "<TAB>",
         },
     },
-}
+})
 
 -- 开启折叠功能 zc 折叠 zo 打开
 vim.opt.foldmethod = "expr"
