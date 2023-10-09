@@ -1,5 +1,5 @@
 -- comment this if you do not want to open nvim with a dir
-vim.cmd([[ autocmd BufEnter * if &buftype != "terminal" | lcd %:p:h | endif ]])
+--vim.cmd([[ autocmd BufEnter * if &buftype != "terminal" | lcd %:p:h | endif ]])
 vim.cmd([[ autocmd BufEnter * if &buftype != "terminal" | endif ]])
 
 -- Use relative & absolute line numbers in 'n' & 'i' modes respectively
