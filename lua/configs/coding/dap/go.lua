@@ -1,4 +1,15 @@
 local M = {}
+local get_args = function()
+    -- 获取输入命令行参数
+    local cmd_args = vim.fn.input('CommandLine Args:')
+    local params = {}
+    -- 定义分隔符(%s在lua内表示任何空白符号)
+    local sep = "%s"
+    for param in string.gmatch(cmd_args, "[^%s]+") do
+        table.insert(params, param)
+    end
+    return params
+end
 
 function M.setup()
     local dap = require "dap"
@@ -21,6 +32,13 @@ function M.setup()
         },
         {
             type = "delve",
+            name = "Debug with Args",
+            request = "launch",
+            program = "${file}",
+            args = get_args,
+        },
+        {
+            type = "delve",
             name = "Debug test", -- configuration for debugging test files
             request = "launch",
             mode = "test",
@@ -33,6 +51,15 @@ function M.setup()
             request = "launch",
             mode = "test",
             program = "./${relativeFileDirname}",
+        },
+        {
+            type = "go",
+            name = "Attach remote",
+            mode = "remote",
+            request = "attach",
+            -- dlv debug -l 127.0.0.1:38697 --headless ./main.go -- subcommand --myflag=xyz
+            -- Call :lua require('dap').continue() to start debugging.
+            -- Select the new registered option Attach remote.
         },
     }
 end
