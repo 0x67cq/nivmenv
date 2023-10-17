@@ -21,6 +21,10 @@ function M.setup()
             args = { "dap", "-l", "127.0.0.1:49890" },
         },
     }
+    dap.adapters.go = {
+        type = "server",
+        port = '8181',
+    }
 
     -- https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_dap.md
     dap.configurations.go = {
@@ -57,7 +61,13 @@ function M.setup()
             name = "Attach remote",
             mode = "remote",
             request = "attach",
-            -- dlv debug -l 127.0.0.1:38697 --headless ./main.go -- subcommand --myflag=xyz
+            -- tell which host and port to connect to
+            connect = {
+                host = "127.0.0.1",
+                port = "8181"
+            }
+            -- dlv debug -l 127.0.0.1:8181 --headless ./main.go -- subcommand --myflag=xyz
+            -- 组合使用 服务器上dlv attach -l 可以在本地调试远端服务器
             -- Call :lua require('dap').continue() to start debugging.
             -- Select the new registered option Attach remote.
         },
